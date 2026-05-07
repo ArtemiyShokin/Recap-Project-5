@@ -8,8 +8,10 @@ export default function ArtPreview({ artpiece }) {
         alt={artpiece.slug}
         width="400"
         height="200"
-      ></Image>
-      <button> dummy favorite</button>
+      />
+      <p>
+        {artpiece.name} by {artpiece.artist}
+      </p>
     </>
   );
 }
