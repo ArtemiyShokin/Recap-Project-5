@@ -8,8 +8,6 @@ export default function ArtList({ artpieces }) {
         <li key={artpiece.slug}>
           <ArtPreview
             artpiece={artpiece}
-            title={artpiece.name}
-            artist={artpiece.artist}
           ></ArtPreview>
         </li>
       ))}
