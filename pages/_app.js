@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import Navigation from "@/components/Navigation/Index";
 
 export default function App({ Component, pageProps }) {
   const { data, error, isLoading } = useSWR(
@@ -19,6 +20,7 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Component {...pageProps} allImages={allImages} />
+      <Navigation />
     </>
   );
 }
