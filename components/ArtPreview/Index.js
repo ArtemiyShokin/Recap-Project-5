@@ -9,9 +9,6 @@ export default function ArtPreview({ artpiece }) {
         width="400"
         height="200"
       />
-      <p>
-        {artpiece.name} by {artpiece.artist}
-      </p>
     </>
   );
 }
