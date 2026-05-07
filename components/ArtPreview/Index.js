@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function ArtPreview({ artpiece, title, artist }) {
+export default function ArtPreview({ artpiece }) {
   return (
     <>
       <Image
@@ -10,7 +10,7 @@ export default function ArtPreview({ artpiece, title, artist }) {
         height="200"
       />
       <p>
-        {title} by {artist}
+        {artpiece.name} by {artpiece.artist}
       </p>
     </>
   );
