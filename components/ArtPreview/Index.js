@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function ArtPreview({ artpiece }) {
+export default function ArtPreview({ artpiece, title, artist }) {
   return (
     <>
       <Image
@@ -8,8 +8,10 @@ export default function ArtPreview({ artpiece }) {
         alt={artpiece.slug}
         width="400"
         height="200"
-      ></Image>
-      <button> dummy favorite</button>
+      />
+      <p>
+        {title} by {artist}
+      </p>
     </>
   );
 }

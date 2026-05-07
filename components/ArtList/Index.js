@@ -5,12 +5,12 @@ export default function ArtList({ artpieces }) {
   return (
     <ul>
       {artpieces.map((artpiece) => (
-        <li key={uid(artpiece)}>
-          <ArtPreview artpiece={artpiece}></ArtPreview>
-
-          <div>
-            {artpiece.name} by {artpiece.artist}
-          </div>
+        <li key={artpiece.slug}>
+          <ArtPreview
+            artpiece={artpiece}
+            title={artpiece.name}
+            artist={artpiece.artist}
+          ></ArtPreview>
         </li>
       ))}
     </ul>
