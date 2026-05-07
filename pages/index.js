@@ -1,24 +1,18 @@
-import ArtList from "@/components/ArtList/Index";
-import useSWR from "swr";
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import Spotlight from "@/components/Spotlight/Index";
 
-export default function HomePage() {
-  const { data, error, isLoading } = useSWR(
-    `https://example-apis.vercel.app/api/art`,
-    fetcher
-  );
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
-  // render data
-
-  const allImages = data.map((artpiece) => {
-    return { isFavorite: false, ...artpiece };
-  });
-
+export default function HomePage({ allImages }) {
   // const favoriteImages = data.filter((artpiece) => artpiece.isfavorite);
+  const spotlightArtpiece = getRandomArtpiece();
+
+  function getRandomArtpiece() {
+    const max = allImages.length - 1;
+    const randomNumber = Math.floor(Math.random() * max);
+    return allImages[randomNumber];
+  }
+
   return (
     <div>
-      <ArtList artpieces={allImages} />
+      <Spotlight artpiece={spotlightArtpiece} />
     </div>
   );
 }
