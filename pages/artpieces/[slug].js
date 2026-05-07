@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
-// Notice we added { allImages } as a prop here!
+
 export default function ArtPieceDetailsPage({ allImages }) {
   const router = useRouter();
   const { slug } = router.query;
