@@ -2,10 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import ArtPreview from "../../components/ArtPreview/Index";
 
-export default function ArtPieceDetailsPage({
-  artpieces,
-  handleToggleFavoritePages,
-}) {
+export default function ArtPieceDetailsPage({ artpieces, onToggleFavorite }) {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -18,10 +15,7 @@ export default function ArtPieceDetailsPage({
   return (
     <>
       <Link href="/artpieces">← Back to Gallery</Link>
-      <ArtPreview
-        artpiece={artpiece}
-        handleToggleFavoritePages={handleToggleFavoritePages}
-      />
+      <ArtPreview artpiece={artpiece} onToggleFavorite={onToggleFavorite} />
       <h1>{artpiece.name}</h1>
       <p>
         <strong>Artist:</strong> {artpiece.artist}

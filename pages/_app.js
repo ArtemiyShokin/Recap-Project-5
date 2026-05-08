@@ -7,7 +7,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export default function App({ Component, pageProps }) {
   const [favorite, setFavorite] = useState([]); // only displays objects with id/slug and isFavorite: true/false
 
-  function handleToggleFavoritePages(artpiece) {
+  function handleToggleFavorite(artpiece) {
     console.log("test", artpiece);
     //adds the artpiece with the correct id to the array and adds/removes isFavorite
   }
@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }) {
       <Component
         {...pageProps}
         artpieces={artpieces}
-        handleToggleFavoritePages={handleToggleFavoritePages}
+        onToggleFavorite={handleToggleFavorite}
       />
       <Navigation />
     </>

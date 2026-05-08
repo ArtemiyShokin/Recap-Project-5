@@ -1,6 +1,6 @@
 import Spotlight from "@/components/Spotlight/Index";
 
-export default function HomePage({ artpieces, handleToggleFavoritePages }) {
+export default function HomePage({ artpieces, onToggleFavorite }) {
   // const favoriteImages = data.filter((artpiece) => artpiece.isfavorite);
   const spotlightArtpiece = getRandomArtpiece();
 
@@ -14,7 +14,7 @@ export default function HomePage({ artpieces, handleToggleFavoritePages }) {
     <div>
       <Spotlight
         artpiece={spotlightArtpiece}
-        handleToggleFavoritePages={handleToggleFavoritePages}
+        onToggleFavorite={onToggleFavorite}
       />
     </div>
   );

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/Index";
-export default function ArtPreview({ artpiece, handleToggleFavoritePages }) {
+export default function ArtPreview({ artpiece, onToggleFavorite }) {
   return (
     <>
       <Link href={`/artpieces/${artpiece.slug}`}>
@@ -12,10 +12,7 @@ export default function ArtPreview({ artpiece, handleToggleFavoritePages }) {
           height="200"
         />{" "}
       </Link>
-      <FavoriteButton
-        onToggleFavoritePage={handleToggleFavoritePages}
-        artpiece={artpiece}
-      />
+      <FavoriteButton onToggleFavorite={onToggleFavorite} artpiece={artpiece} />
     </>
   );
 }
