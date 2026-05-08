@@ -6,7 +6,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App({ Component, pageProps }) {
   const [artpiecesInfo, setArtpiecesInfo] = useState([]); // only displays objects with id/slug and isFavorite: true/false
-
+  const [comments, setComments] = useState({});   
   const {
     data: artpieces,
     error,
@@ -27,10 +27,24 @@ export default function App({ Component, pageProps }) {
       return [...prevArtpiecesInfo, { slug, isFavorite: true }];
     });
     console.log(artpiecesInfo);
-    //adds the artpiece with the correct id to the array and adds/removes isFavorite
+   
   }
 
-  // render data
+  function handleAddComment(slug, newComment) {
+  const date = new Date().toLocaleDateString();
+  const time = new Date().toLocaleTimeString();
+
+  setComments((prevComments) => ({
+    ...prevComments,
+    [slug]: [
+      ...(prevComments[slug] || []),
+      { text: newComment, date, time },
+    ],
+  }));
+}
+
+
+
 
   return (
     <>
@@ -40,6 +54,8 @@ export default function App({ Component, pageProps }) {
         artpieces={artpieces}
         onToggleFavorite={handleToggleFavorite}
         artpiecesInfo={artpiecesInfo}
+        comments={comments}
+  onSubmitComment={handleAddComment}
       />
       <Navigation />
     </>
