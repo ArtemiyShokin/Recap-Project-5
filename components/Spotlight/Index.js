@@ -8,7 +8,6 @@ export default function Spotlight({
   const { isFavorite } = artpiecesInfo?.find(
     (info) => info.slug === artpiece.slug
   ) ?? { isFavorite: false };
-  console.log("Spotlight:", isFavorite);
 
   return (
     <>
@@ -21,3 +20,5 @@ export default function Spotlight({
     </>
   );
 }
+
+//jest js.10
