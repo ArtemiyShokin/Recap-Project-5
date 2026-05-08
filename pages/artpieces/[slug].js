@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
-import ArtPreview from "../ArtPreview/Index";
-
+import ArtPreview from "../../components/ArtPreview/Index";
 
 export default function ArtPieceDetailsPage({ allImages }) {
   const router = useRouter();
