@@ -1,12 +1,11 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import ArtPreview from "../../components/ArtPreview/Index";
+import CommentForm from "@/components/CommentForm/Index";
+import Comments from "@/components/Comments/Index";
 
-export default function ArtPieceDetailsPage({
-  artpieces,
-  onToggleFavorite,
-  artpiecesInfo,
-}) {
+
+export default function ArtPieceDetailsPage({ artpieces, onToggleFavorite, artpiecesInfo,  comments, onSubmitComment  }) {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -18,6 +17,9 @@ export default function ArtPieceDetailsPage({
   if (!router.isReady) return <div>Loading...</div>;
 
   if (!artpiece) return <div>Art piece not found.</div>;
+
+  
+  const artpieceComments = comments[slug] || [];
 
   return (
     <>
@@ -37,6 +39,11 @@ export default function ArtPieceDetailsPage({
       <p>
         <strong>Genre:</strong> {artpiece.genre}
       </p>
+     
+      <Comments artpieceComments={artpieceComments} />
+
+     
+      <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
     </>
   );
 }
