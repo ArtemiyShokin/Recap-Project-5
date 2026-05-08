@@ -13,7 +13,7 @@ export default function ArtList({
           (info) => info.slug === artpiece.slug
         ) ?? { isFavorite: false };
         return (
-          <StyledListElement key={artpiece.slug}>
+          <StyledListElement key={artpiece.slug} isFavorite={isFavorite}>
             <ArtPreview
               artpiece={artpiece}
               onToggleFavorite={onToggleFavorite}
@@ -31,6 +31,6 @@ export default function ArtList({
 
 // hier brauchen wir  styled component ListItem mit : if isFavorite background rot else nix
 const StyledListElement = styled.li`
-  background-color: green;
+ background-color: ${(props) => (props.isFavorite ? "green;" : "transparent")}
   max-width: 450px;
 `;
