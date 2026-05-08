@@ -4,11 +4,15 @@ import ArtPreview from "../../components/ArtPreview/Index";
 import CommentForm from "@/components/CommentForm/Index";
 import Comments from "@/components/Comments/Index";
 
-export default function ArtPieceDetailsPage({ artpieces, onToggleFavorite,  comments, onSubmitComment  }) {
+
+export default function ArtPieceDetailsPage({ artpieces, onToggleFavorite, artpiecesInfo,  comments, onSubmitComment  }) {
   const router = useRouter();
   const { slug } = router.query;
 
   const artpiece = artpieces?.find((artpiece) => artpiece.slug === slug);
+  const { isFavorite } = artpiecesInfo?.find(
+    (info) => info.slug === artpiece.slug
+  ) ?? { isFavorite: false };
 
   if (!router.isReady) return <div>Loading...</div>;
 
@@ -20,7 +24,11 @@ export default function ArtPieceDetailsPage({ artpieces, onToggleFavorite,  comm
   return (
     <>
       <Link href="/artpieces">← Back to Gallery</Link>
-      <ArtPreview artpiece={artpiece} onToggleFavorite={onToggleFavorite} />
+      <ArtPreview
+        artpiece={artpiece}
+        onToggleFavorite={onToggleFavorite}
+        isFavorite={isFavorite}
+      />
       <h1>{artpiece.name}</h1>
       <p>
         <strong>Artist:</strong> {artpiece.artist}

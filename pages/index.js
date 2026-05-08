@@ -1,20 +1,27 @@
 import Spotlight from "@/components/Spotlight/Index";
-
-export default function HomePage({ artpieces, onToggleFavorite }) {
+import { useEffect } from "react";
+import { useState } from "react";
+export default function HomePage({
+  artpieces,
+  onToggleFavorite,
+  artpiecesInfo,
+}) {
   // const favoriteImages = data.filter((artpiece) => artpiece.isfavorite);
-  const spotlightArtpiece = getRandomArtpiece();
+  const [spotlightArtpiece] = useState(() => getRandomArtpiece());
 
+  // useEffect(() => {
   function getRandomArtpiece() {
-    const max = artpieces.length - 1;
-    const randomNumber = Math.floor(Math.random() * max);
+    const randomNumber = Math.floor(Math.random() * artpieces.length);
     return artpieces[randomNumber];
   }
+  // }, []);
 
   return (
     <div>
       <Spotlight
         artpiece={spotlightArtpiece}
         onToggleFavorite={onToggleFavorite}
+        artpiecesInfo={artpiecesInfo}
       />
     </div>
   );

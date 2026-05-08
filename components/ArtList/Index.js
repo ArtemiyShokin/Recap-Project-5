@@ -1,5 +1,5 @@
 import ArtPreview from "../ArtPreview/Index";
-import Link from "next/link";
+import styled from "styled-components";
 
 export default function ArtList({
   artpieces,
@@ -9,12 +9,11 @@ export default function ArtList({
   return (
     <ul>
       {artpieces.map((artpiece) => {
-        console.log("Artlist status:", artpiecesInfo);
         const { isFavorite } = artpiecesInfo?.find(
           (info) => info.slug === artpiece.slug
         ) ?? { isFavorite: false };
         return (
-          <li key={artpiece.slug}>
+          <StyledListElement key={artpiece.slug} isFavorite={isFavorite}>
             <ArtPreview
               artpiece={artpiece}
               onToggleFavorite={onToggleFavorite}
@@ -23,9 +22,15 @@ export default function ArtList({
             <p>
               {artpiece.name} by {artpiece.artist}
             </p>
-          </li>
+          </StyledListElement>
         );
       })}
     </ul>
   );
 }
+
+// hier brauchen wir  styled component ListItem mit : if isFavorite background rot else nix
+const StyledListElement = styled.li`
+ background-color: ${(props) => (props.isFavorite ? "green" : "transparent")}
+  max-width: 450px;
+`;
