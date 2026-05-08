@@ -5,12 +5,8 @@ import { useState } from "react";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App({ Component, pageProps }) {
-  const [favorite, setFavorite] = useState([]); // only displays objects with id/slug and isFavorite: true/false
+  const [artpiecesInfo, setArtpiecesInfo] = useState([]); // only displays objects with id/slug and isFavorite: true/false
 
-  function handleToggleFavorite(artpiece) {
-    console.log("test", artpiece);
-    //adds the artpiece with the correct id to the array and adds/removes isFavorite
-  }
   const {
     data: artpieces,
     error,
@@ -18,6 +14,22 @@ export default function App({ Component, pageProps }) {
   } = useSWR(`https://example-apis.vercel.app/api/art`, fetcher);
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
+
+  function handleToggleFavorite(slug) {
+    setArtpiecesInfo((prevArtpiecesInfo) => {
+      const info = prevArtpiecesInfo.find((info) => info.slug === slug);
+
+      if (info) {
+        return prevArtpiecesInfo.map((info) =>
+          info.slug === slug ? { ...info, isFavorite: !info.isFavorite } : info
+        );
+      }
+      return [...prevArtpiecesInfo, { slug, isFavorite: true }];
+    });
+    console.log(artpiecesInfo);
+    //adds the artpiece with the correct id to the array and adds/removes isFavorite
+  }
+
   // render data
 
   return (
@@ -27,6 +39,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         artpieces={artpieces}
         onToggleFavorite={handleToggleFavorite}
+        artpiecesInfo={artpiecesInfo}
       />
       <Navigation />
     </>
