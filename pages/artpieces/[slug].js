@@ -3,9 +3,15 @@ import Link from "next/link";
 import ArtPreview from "../../components/ArtPreview/Index";
 import CommentForm from "@/components/CommentForm/Index";
 import Comments from "@/components/Comments/Index";
+import ColorPalette from "@/components/ColorPalette/Index";
 
-
-export default function ArtPieceDetailsPage({ artpieces, onToggleFavorite, artpiecesInfo,  comments, onSubmitComment  }) {
+export default function ArtPieceDetailsPage({
+  artpieces,
+  onToggleFavorite,
+  artpiecesInfo,
+  comments,
+  onSubmitComment,
+}) {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -18,7 +24,6 @@ export default function ArtPieceDetailsPage({ artpieces, onToggleFavorite, artpi
 
   if (!artpiece) return <div>Art piece not found.</div>;
 
-  
   const artpieceComments = comments[slug] || [];
 
   return (
@@ -29,6 +34,7 @@ export default function ArtPieceDetailsPage({ artpieces, onToggleFavorite, artpi
         onToggleFavorite={onToggleFavorite}
         isFavorite={isFavorite}
       />
+      <ColorPalette colors={artpiece.colors} />
       <h1>{artpiece.name}</h1>
       <p>
         <strong>Artist:</strong> {artpiece.artist}
@@ -39,10 +45,9 @@ export default function ArtPieceDetailsPage({ artpieces, onToggleFavorite, artpi
       <p>
         <strong>Genre:</strong> {artpiece.genre}
       </p>
-     
+
       <Comments artpieceComments={artpieceComments} />
 
-     
       <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
     </>
   );
