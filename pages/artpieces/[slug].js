@@ -1,14 +1,15 @@
 import { useRouter } from "next/router";
-import Image from "next/image";
 import Link from "next/link";
-import ArtPreview from "../ArtPreview/Index";
+import ArtPreview from "../../components/ArtPreview/Index";
 
-
-export default function ArtPieceDetailsPage({ allImages }) {
+export default function ArtPieceDetailsPage({
+  artpieces,
+  handleToggleFavoritePages,
+}) {
   const router = useRouter();
   const { slug } = router.query;
 
-  const artpiece = allImages?.find((artpiece) => artpiece.slug === slug);
+  const artpiece = artpieces?.find((artpiece) => artpiece.slug === slug);
 
   if (!router.isReady) return <div>Loading...</div>;
 
@@ -17,7 +18,10 @@ export default function ArtPieceDetailsPage({ allImages }) {
   return (
     <>
       <Link href="/artpieces">← Back to Gallery</Link>
-      <ArtPreview artpiece={artpiece} />
+      <ArtPreview
+        artpiece={artpiece}
+        handleToggleFavoritePages={handleToggleFavoritePages}
+      />
       <h1>{artpiece.name}</h1>
       <p>
         <strong>Artist:</strong> {artpiece.artist}
