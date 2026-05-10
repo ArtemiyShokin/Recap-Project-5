@@ -39,8 +39,6 @@ const NavigationWrapper = styled.nav`
   bottom: 0;
   background: linear-gradient(
     hsl(233, 46%, 65%),
-    hsl(233, 46%, 70%),
-    hsl(233, 46%, 80%),
     hsl(233, 46%, 85%)
   ); // --secondary-400
   border-top-left-radius: 20px;
