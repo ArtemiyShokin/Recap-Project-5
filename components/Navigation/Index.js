@@ -37,7 +37,12 @@ const NavigationWrapper = styled.nav`
   width: 100%;
   position: fixed;
   bottom: 0;
-  background-color: hsl(233, 46%, 65%); // --secondary-400
+  background: linear-gradient(
+    hsl(233, 46%, 65%),
+    hsl(233, 46%, 70%),
+    hsl(233, 46%, 80%),
+    hsl(233, 46%, 85%)
+  ); // --secondary-400
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border: 0.4rem outset hsl(233, 46%, 75%); //--secondary-300
@@ -64,11 +69,11 @@ const StyledLink = styled(Link)`
   ${(props) =>
     props.href === props.$currentPath &&
     css`
-      color: hsl(233, 46%, 25%); //--secondary-800
+      color: hsl(233, 46%, 35%); //--secondary-800
       padding: 1rem 0;
 
       &:hover {
-        color: hsl(233, 46%, 45%); //--secondary-600
+        color: hsl(233, 46%, 55%); //--secondary-600
       }
     `};
 `;
