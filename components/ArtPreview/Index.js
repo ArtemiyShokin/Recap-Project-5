@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/Index";
-<<<<<<< styling-prep
+import { motion } from "framer-motion";
 import styled from "styled-components";
+
 export default function ArtPreview({
   artpiece,
   onToggleFavorite,
@@ -13,7 +14,13 @@ export default function ArtPreview({
     <>
       <PreviewContainer isFavorite={isFavorite}>
         <Link href={`/artpieces/${artpiece.slug}`}>
-          <StyledImage src={artpiece.imageSource} alt={artpiece.slug} fill />
+          <MotionImage
+            src={artpiece.imageSource}
+            alt={artpiece.slug}
+            fill
+            layoutId={artpiece.slug} // 3. The "magic" property
+            transition={{ duration: 0.5 }}
+          />
         </Link>
         <FavoriteButton
           onToggleFavorite={onToggleFavorite}
@@ -26,29 +33,6 @@ export default function ArtPreview({
             : artpiece.name + " by " + artpiece.artist}
         </StyledArtworkTitle>
       </PreviewContainer>
-=======
-import { motion } from "framer-motion";
-
-const MotionImage = motion(Image);
-export default function ArtPreview({ artpiece, onToggleFavorite, isFavorite }) {
-  return (
-    <>
-      <Link href={`/artpieces/${artpiece.slug}`}>
-       <MotionImage
-          src={artpiece.imageSource}
-          alt={artpiece.slug}
-          width="400"
-          height="200"
-          layoutId={artpiece.slug} // 3. The "magic" property
-          transition={{ duration: 0.5 }}
-        />
-      </Link>
-      <FavoriteButton
-        onToggleFavorite={onToggleFavorite}
-        artpiece={artpiece}
-        isFavorite={isFavorite}
-      />
->>>>>>> main
     </>
   );
 }
@@ -74,6 +58,8 @@ const StyledImage = styled(Image)`
   object-fit: cover;
   object-position: center;
 `;
+
+const MotionImage = motion(StyledImage);
 
 const StyledArtworkTitle = styled.p`
   margin-top: 0.5rem;
