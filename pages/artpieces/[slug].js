@@ -122,9 +122,9 @@ const PageBackground = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  background-color: #6ab5ff;
-  background-image:
-    radial-gradient(at 0% 0%, rgba(255, 255, 6, 0.67) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(255, 21, 196, 0.61) 0px, transparent 50%);
+  // z-index: -1;
+  // background-color: #6ab5ff;
+  // background-image:
+  //   radial-gradient(at 0% 0%, rgba(255, 255, 6, 0.67) 0px, transparent 50%),
+  //   radial-gradient(at 100% 100%, rgba(255, 21, 196, 0.61) 0px, transparent 50%);
 `;

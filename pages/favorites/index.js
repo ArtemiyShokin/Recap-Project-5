@@ -1,4 +1,5 @@
 import ArtList from "@/components/ArtList/Index";
+import styled from "styled-components";
 
 export default function Favorites({
   artpieces,
@@ -12,10 +13,20 @@ export default function Favorites({
   );
 
   return (
-    <ArtList
-      artpieces={favoriteArtpieces}
-      onToggleFavorite={onToggleFavorite}
-      artpiecesInfo={artpiecesInfo}
-    />
+    <>
+      <StyledTitle>Art Gallery</StyledTitle>
+      <ArtList
+        artpieces={favoriteArtpieces}
+        onToggleFavorite={onToggleFavorite}
+        artpiecesInfo={artpiecesInfo}
+      />
+    </>
   );
 }
+
+const StyledTitle = styled.h1`
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--secondary-500);
+  font-weight: 800;
+`;

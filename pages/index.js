@@ -1,5 +1,5 @@
 import Spotlight from "@/components/Spotlight/Index";
-import { useEffect } from "react";
+import styled from "styled-components";
 import { useState } from "react";
 export default function HomePage({
   artpieces,
@@ -18,6 +18,7 @@ export default function HomePage({
 
   return (
     <div>
+      <StyledTitle>Art Gallery</StyledTitle>
       <Spotlight
         artpiece={spotlightArtpiece}
         onToggleFavorite={onToggleFavorite}
@@ -26,3 +27,10 @@ export default function HomePage({
     </div>
   );
 }
+
+const StyledTitle = styled.h1`
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--secondary-500);
+  font-weight: 800;
+`;
