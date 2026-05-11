@@ -32,11 +32,11 @@ export default function ArtPieceDetailsPage({
       <DetailWrapper>
         <StyledBackLink href="/artpieces">← Back to Gallery</StyledBackLink>
 
-       <DetailImage
-  src={artpiece.imageSource}
-  alt={artpiece.name}
-  layoutId={artpiece.slug} 
-/>
+        <DetailImage
+          src={artpiece.imageSource}
+          alt={artpiece.name}
+          layoutId={artpiece.slug}
+        />
 
         <ColorPalette colors={artpiece.colors} />
 
@@ -76,7 +76,7 @@ const DetailWrapper = styled.div`
 
 const DetailImage = styled(motion.img)`
   width: 100%;
-  max-width: 600px; 
+  max-width: 600px;
   height: auto;
   display: block;
   border-radius: 20px;
@@ -127,9 +127,9 @@ const MetaInfo = styled.p`
   }
 `;
 const PageBackground = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
   width: 100%;
   height: 100%;
   // z-index: -1;
