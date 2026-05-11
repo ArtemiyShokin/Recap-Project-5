@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components";
+import { Nunito } from "next/font/google";
 
+const myFont = Nunito({ subsets: ["latin", "cyrillic"] });
+//${myFont.style.fontFamily}
 export default createGlobalStyle`
+
+
   *,
   *::before,
   *::after {
@@ -9,7 +14,7 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: ${myFont.style.fontFamily};
     
   }
 
