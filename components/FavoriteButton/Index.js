@@ -15,6 +15,7 @@ export default function FavoriteButton({
 
 const StyledButton = styled.button`
   background-color: transparent;
+
   border-style: none;
   position: absolute;
   top: 0.5rem;
