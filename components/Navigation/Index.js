@@ -8,8 +8,6 @@ export default function Navigation() {
   const slash = "/";
   const currentPath = slash.concat(splittedPathname[1]);
 
-  console.log(currentPath);
-
   return (
     <NavigationWrapper>
       <StyledList>
@@ -38,20 +36,22 @@ const NavigationWrapper = styled.nav`
   position: fixed;
   bottom: 0;
   background: linear-gradient(
-    hsl(233, 46%, 65%),
-    hsl(233, 46%, 85%)
+    310deg,
+    hsl(233, 46%, 65%) 0%,
+    hsl(233, 46%, 75%) 100%
   ); // --secondary-400
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  border: 0.4rem outset hsl(233, 46%, 75%); //--secondary-300
+  border: 0.2rem outset hsl(233, 46%, 75%); //--secondary-300
+  border-bottom: 0;
 `;
 
 const StyledList = styled.ul`
   list-style: none;
   display: flex;
-  gap: 5rem;
+  gap: 1.5rem;
 
-  justify-content: center;
+  justify-content: space-around;
   margin: 0;
   padding: 1rem;
 `;
@@ -60,6 +60,8 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: hsl(233, 46%, 95%); // --secondary-100
   font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
 
   &:hover {
     color: hsl(233, 46%, 85%); // --secondary-200
@@ -68,27 +70,9 @@ const StyledLink = styled(Link)`
     props.href === props.$currentPath &&
     css`
       color: hsl(233, 46%, 35%); //--secondary-800
-      padding: 1rem 0;
 
       &:hover {
         color: hsl(233, 46%, 55%); //--secondary-600
       }
     `};
 `;
-
-// const NavigationButton = styled.button`
-// background-color: hsl(177, 36%, 85%);
-// width: auto;
-// height: 2rem;
-// `;
-// <NavigationWrapper>
-//   <Link href="/">
-//     <NavigationButton>Spotlight</NavigationButton>
-//   </Link>
-//   <Link href="/artpieces">
-//     <NavigationButton>Gallery</NavigationButton>
-//   </Link>
-//   <Link href="/favorites">
-//     <NavigationButton>Favorites</NavigationButton>
-//   </Link>
-// </NavigationWrapper>
