@@ -18,6 +18,7 @@ export default createGlobalStyle`
     
   }
 
+:root {
   /* Primary Colors */
   --primary-100: hsl(116, 20%, 95%);
   --primary-200: hsl(116, 20%, 85%);
@@ -63,4 +64,5 @@ export default createGlobalStyle`
   --grey-100: hsl(0, 0%, 95%);
   --grey-500: hsl(0, 0%, 50%);
   --grey-900: hsl(0, 0%, 10%);
+  }
 `;
