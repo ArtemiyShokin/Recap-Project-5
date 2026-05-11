@@ -68,6 +68,7 @@ export default function ArtPieceDetailsPage({
 const DetailWrapper = styled.div`
   max-width: 600px;
   margin: 0 auto;
+  margin-bottom: 25px;
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
