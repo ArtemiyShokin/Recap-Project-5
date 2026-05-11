@@ -44,12 +44,12 @@ const NavigationWrapper = styled.nav`
   border-top-right-radius: 20px;
   border: 0.2rem outset hsl(233, 46%, 75%); //--secondary-300
   border-bottom: 0;
+  z-index: 100;
 `;
 
 const StyledList = styled.ul`
   list-style: none;
   display: flex;
-  gap: 1.5rem;
 
   justify-content: space-around;
   margin: 0;
@@ -60,7 +60,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: hsl(233, 46%, 95%); // --secondary-100
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1rem;
   text-transform: uppercase;
 
   &:hover {

@@ -18,7 +18,18 @@ export default createGlobalStyle`
     
   }
 
-:root {
+  :root {
+    /*Background settings*/
+    z-index: -1;
+    background-color: var(--secondary-100);
+    background-image: 
+    radial-gradient(at 0% 0%, var(--primary-300) 0px, transparent 30%),
+    radial-gradient(at 100% 100%, var(--tertiary-200) 0px, transparent 40%);
+    background-repeat: no-repeat;
+    background-size: cover; /* Bild füllt den Platz, ohne Verzerrung */
+    background-position: center center;
+    background-attachment: fixed;
+
   /* Primary Colors */
   --primary-100: hsl(116, 20%, 95%);
   --primary-200: hsl(116, 20%, 85%);
@@ -64,5 +75,5 @@ export default createGlobalStyle`
   --grey-100: hsl(0, 0%, 95%);
   --grey-500: hsl(0, 0%, 50%);
   --grey-900: hsl(0, 0%, 10%);
-  }
+}
 `;
