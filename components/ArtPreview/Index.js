@@ -27,7 +27,7 @@ export default function ArtPreview({
           artpiece={artpiece}
           isFavorite={isFavorite}
         />
-        <StyledArtworkTitle>
+        <StyledArtworkTitle isFavorite={isFavorite}>
           {mode === "spotlight"
             ? artpiece.artist
             : artpiece.name + " by " + artpiece.artist}
@@ -49,7 +49,9 @@ const PreviewContainer = styled.div`
   box-shadow:
     rgba(39, 39, 39, 0.2) 0px 8px 24px,
     ${(props) =>
-      props.isFavorite ? "5px 5px red" : "0px 0px 0px transparent"};
+      props.isFavorite
+        ? "var(--tertiary-200) 3px 4px 5px "
+        : "0px 0px 0px transparent"};
 
   display: flex;
 `;
@@ -63,8 +65,14 @@ const MotionImage = motion(StyledImage);
 
 const StyledArtworkTitle = styled.p`
   margin-top: 0.5rem;
-  color: white;
-  background-color: gray;
+  color: var(--secondary-800);
+  background: linear-gradient(
+    310deg,
+    hsla(233, 46%, 65%, 0.8) 0%,
+    hsla(233, 47%, 75%, 0.8) 100%
+  );
+
+  padding: 0.2rem;
 
   width: fit-content;
   height: fit-content;
