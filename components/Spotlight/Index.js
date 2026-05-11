@@ -16,8 +16,8 @@ export default function Spotlight({
         artpiece={artpiece}
         onToggleFavorite={onToggleFavorite}
         isFavorite={isFavorite}
+        mode="spotlight"
       />
-      <p>{artpiece.artist}</p>
     </>
   );
 }

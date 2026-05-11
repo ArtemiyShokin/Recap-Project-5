@@ -7,30 +7,38 @@ export default function ArtList({
   artpiecesInfo,
 }) {
   return (
-    <ul>
+    <StyledUnorderedList>
       {artpieces.map((artpiece) => {
         const { isFavorite } = artpiecesInfo?.find(
           (info) => info.slug === artpiece.slug
         ) ?? { isFavorite: false };
         return (
-          <StyledListElement key={artpiece.slug} isFavorite={isFavorite}>
+          <l key={artpiece.slug} isFavorite={isFavorite}>
             <ArtPreview
               artpiece={artpiece}
               onToggleFavorite={onToggleFavorite}
               isFavorite={isFavorite}
             />
-            <p>
-              {artpiece.name} by {artpiece.artist}
-            </p>
-          </StyledListElement>
+          </l>
         );
       })}
-    </ul>
+    </StyledUnorderedList>
   );
 }
 
 // hier brauchen wir  styled component ListItem mit : if isFavorite background rot else nix
-const StyledListElement = styled.li`
-  background-color: ${(props) => (props.isFavorite ? "green" : "transparent")};
-  max-width: 450px;
+// const ListContainer = styled.div``;
+
+// const StyledListElement = styled.li`
+//   background-color: ${(props) => (props.isFavorite ? "green" : "transparent")};
+// `;
+const StyledUnorderedList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
 `;
