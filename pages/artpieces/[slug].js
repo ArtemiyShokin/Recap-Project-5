@@ -32,11 +32,11 @@ export default function ArtPieceDetailsPage({
       <DetailWrapper>
         <StyledBackLink href="/artpieces">← Back to Gallery</StyledBackLink>
 
-        <ArtPreview
-          artpiece={artpiece}
-          onToggleFavorite={onToggleFavorite}
-          isFavorite={isFavorite}
-        />
+       <DetailImage
+  src={artpiece.imageSource}
+  alt={artpiece.name}
+  layoutId={artpiece.slug} 
+/>
 
         <ColorPalette colors={artpiece.colors} />
 
@@ -72,6 +72,16 @@ const DetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+`;
+
+const DetailImage = styled(motion.img)`
+  width: 100%;
+  max-width: 600px; 
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
 `;
 
 const InfoCard = styled.div`
