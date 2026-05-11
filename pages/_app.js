@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }) {
           info.slug === slug ? { ...info, isFavorite: !info.isFavorite } : info
         );
       }
-      return [...prevArtpiecesInfo, { slug, isFavorite: true }];
+      return [...prevArtpiecesInfo, { slug: slug, isFavorite: true }];
     });
     console.log(artpiecesInfo);
   }
