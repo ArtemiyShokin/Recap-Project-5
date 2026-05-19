@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
     data: artpieces,
     error,
     isLoading,
-  } = useSWR(`https://example-apis.vercel.app/api/art`, fetcher);
+  } = useSWR("/api/artpieces", fetcher);
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
