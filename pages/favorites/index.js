@@ -28,5 +28,5 @@ const StyledTitle = styled.h1`
   text-transform: uppercase;
   text-align: center;
   color: var(--secondary-500);
-  font-weight: 800;
+  font-weight: 500;
 `;

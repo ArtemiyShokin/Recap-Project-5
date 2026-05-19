@@ -1,8 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { Nunito } from "next/font/google";
 
-const myFont = Nunito({ subsets: ["latin", "cyrillic"] });
-//${myFont.style.fontFamily}
 export default createGlobalStyle`
 
 
@@ -14,17 +11,17 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: ${myFont.style.fontFamily};
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     
   }
 
   :root {
     /*Background settings*/
     z-index: -1;
-    background-color: var(--secondary-100);
-    background-image: 
-    radial-gradient(at 0% 0%, var(--primary-300) 0px, transparent 30%),
-    radial-gradient(at 100% 100%, var(--tertiary-200) 0px, transparent 40%);
+    background: linear-gradient(  var(--slawic-background), var(--slawic-background))
+   ;
+
+   
     background-repeat: no-repeat;
     background-size: cover; /* Bild füllt den Platz, ohne Verzerrung */
     background-position: center center;
@@ -75,5 +72,14 @@ export default createGlobalStyle`
   --grey-100: hsl(0, 0%, 95%);
   --grey-500: hsl(0, 0%, 50%);
   --grey-900: hsl(0, 0%, 10%);
+
+
+  /* slawic palette */
+  --slawic-background: #f5f0ec;
+  --slawic-primary: #f40b39;
+  --slawic-secondary: #0045b4;
+
+
+
 }
 `;
